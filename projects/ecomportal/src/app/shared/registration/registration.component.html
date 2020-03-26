@@ -1,0 +1,63 @@
+<!-- {{ registrationForm.valid | json }}
+{{ registrationForm.invalid | json }}
+{{ registrationForm.pristine | json }}
+{{ registrationForm.value | json }}
+{{ registrationForm.errors | json }} 
+{{ registrationForm.get('password').errors | json }} 
+
+<mat-error *ngIf="registrationForm.get('confirmPassword')?.errors?.invalidPassword">
+    Password and Confirm Password should be same
+</mat-error>
+-->
+
+<form class="example-form" [formGroup]="registrationForm" (submit)="register()">
+    <mat-form-field class="example-full-width">
+        <mat-label>First Name *</mat-label>
+        <input matInput formControlName="firstName">
+        <!-- note: this is a Control level error -->
+        <mat-error *ngIf="registrationForm.get('firstName').errors">
+            Please enter a valid First Name
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Mobile</mat-label>
+        <input matInput formControlName="mobile">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password">
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput type="password" formControlName="confirmPassword">
+    </mat-form-field>
+
+    <!-- note: this is a Form level error -->
+    <mat-error *ngIf="registrationForm.errors?.invalidPassword">
+        Password and Confirm Password should be same
+    </mat-error>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dob">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <div>
+        <button [disabled]="registrationForm.invalid" type="submit" mat-raised-button color="primary">Register</button>
+    </div>
+</form>
