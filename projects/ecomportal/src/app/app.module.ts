@@ -1,15 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
+
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MaterialsModule } from './materials/materials.module';
 import { SharedModule } from './shared/shared.module';
-import { AdminModule } from './admin/admin.module';
-import { UserModule } from './user/user.module';
 import { CustomInterceptorService } from './shared/custom-interceptor/custom-interceptor.service';
+import { ErrorHandlerService } from './shared/error-handler/error-handler.service';
+import { RoutingModule } from './routing/routing.module';
 
 
 @NgModule({
@@ -21,12 +21,11 @@ import { CustomInterceptorService } from './shared/custom-interceptor/custom-int
     BrowserAnimationsModule,
     MaterialsModule,
     SharedModule,
-    RouterModule.forRoot([]),
-    AdminModule,
-    UserModule
+    RoutingModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: CustomInterceptorService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: CustomInterceptorService, multi: true },
+    { provide: ErrorHandler, useClass: ErrorHandlerService }
   ],
   bootstrap: [AppComponent]
 })
