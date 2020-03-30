@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable } from 'rxjs';
 
 import { IUser } from '../service/user';
 import { LoginService } from '../service/login.service';
@@ -18,6 +19,8 @@ export class LoginComponent implements OnInit {
     password: ''
   };
 
+  loginStatus$: Observable<boolean>;
+
   constructor(private loginService: LoginService,
               private snackbar: MatSnackBar,
               private router: Router,
@@ -32,6 +35,8 @@ export class LoginComponent implements OnInit {
         const role = this.encService.encrypt(response.role, '');
         sessionStorage.setItem('role', role);
         sessionStorage.setItem('token', response.data);
+        this.loginService.isLoggedIn(true);
+        this.loginService.userRole(response.role);
         this.navigate(response.role);
       } else {
         this.snackbar.open(response.message, 'Login', {

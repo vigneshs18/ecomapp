@@ -1,0 +1,25 @@
+<!-- {{ categoryForm.value | json }} -->
+
+<form [formGroup]="categoryForm" (submit)="saveCategories()">
+    <div formArrayName="category">
+        <div *ngFor="let category of categoryForm['controls'].category['controls']; let i=index">
+            <div [formGroupName]="i">
+                <mat-form-field class="formControl">
+                    <mat-label>Category Name</mat-label>
+                    <input matInput type="text" formControlName="categoryName">
+                </mat-form-field>
+                <div class="buttonDiv">
+                    <button type="button" *ngIf="i===0" mat-mini-fab color="primary" (click)="addControl()">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                    <button type="button" *ngIf="i>0" mat-mini-fab color="warn" (click)="removeControl(i)">
+                        <mat-icon>remove</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <button class="buttonMargin" type="submit" [disabled]="categoryForm.invalid" mat-raised-button>Add Categories</button>
+    </div>
+</form>

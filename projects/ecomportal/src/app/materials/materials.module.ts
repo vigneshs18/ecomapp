@@ -14,7 +14,13 @@ import {
   MatInputModule,
   MatSnackBarModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatTableModule,
+  MatDividerModule,
+  MatMenuModule,
+  MatBadgeModule,
+  MatSelectModule,
+  MatButtonToggleModule
 } from '@angular/material';
 
 import { APP_CONFIG } from './AppConfig';
@@ -43,7 +49,13 @@ const AppConfig: IAppConfig = {
     MatInputModule,
     MatSnackBarModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTableModule,
+    MatDividerModule,
+    MatMenuModule,
+    MatBadgeModule,
+    MatSelectModule,
+    MatButtonToggleModule
   ],
   providers: [
     { provide: APP_CONFIG, useValue: AppConfig }
@@ -63,7 +75,13 @@ const AppConfig: IAppConfig = {
     MatInputModule,
     MatSnackBarModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTableModule,
+    MatDividerModule,
+    MatMenuModule,
+    MatBadgeModule,
+    MatSelectModule,
+    MatButtonToggleModule
   ]
 })
 export class MaterialsModule { }

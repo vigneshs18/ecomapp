@@ -17,7 +17,7 @@ export class ErrorHandlerService implements ErrorHandler {
       const http = this.injector.get(HttpClient);
       const appConfig = this.injector.get(APP_CONFIG);
       const snackbar = this.injector.get(MatSnackBar);
-      const errorMessage = JSON.stringify(error);
+      const errorMessage = JSON.stringify(error.message);
       http.post(appConfig.apiEndPoint + '/errorLog', { error: errorMessage }).subscribe((result) => {
         snackbar.open('Some problem in performing this operation, Please try again', 'ErrorLog', {
           duration: 2000
