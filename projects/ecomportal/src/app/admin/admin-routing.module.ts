@@ -1,13 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from '../shared/guard/auth.guard';
+import { AdminGuard } from './guard/admin.guard';
 import { CategoryComponent } from './category/category.component';
+import { AdminProductComponent } from './admin-product/admin-product.component';
+import { AdminOrderComponent } from './admin-order/admin-order.component';
 
 
 const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent, canActivate: [ AuthGuard ] },
-  { path: 'category', component: CategoryComponent, canActivate: [ AuthGuard ] }
+  { path: 'dashboard', component: DashboardComponent, canActivate: [ AuthGuard, AdminGuard ] },
+  { path: 'category', component: CategoryComponent, canActivate: [ AuthGuard, AdminGuard ] },
+  { path: 'product', component: AdminProductComponent, canActivate: [AuthGuard, AdminGuard ] },
+  { path: 'orders', component: AdminOrderComponent, canActivate: [AuthGuard, AdminGuard ] },
 ];
 
 @NgModule({
