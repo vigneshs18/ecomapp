@@ -20,7 +20,9 @@ import {
   MatMenuModule,
   MatBadgeModule,
   MatSelectModule,
-  MatButtonToggleModule
+  MatButtonToggleModule,
+  MatCardModule,
+  MatGridListModule
 } from '@angular/material';
 
 import { APP_CONFIG } from './AppConfig';
@@ -55,7 +57,9 @@ const AppConfig: IAppConfig = {
     MatMenuModule,
     MatBadgeModule,
     MatSelectModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [
     { provide: APP_CONFIG, useValue: AppConfig }
@@ -81,7 +85,9 @@ const AppConfig: IAppConfig = {
     MatMenuModule,
     MatBadgeModule,
     MatSelectModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatCardModule,
+    MatGridListModule
   ]
 })
 export class MaterialsModule { }

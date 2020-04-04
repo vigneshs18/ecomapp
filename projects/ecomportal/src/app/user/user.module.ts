@@ -4,23 +4,20 @@ import { CommonModule } from '@angular/common';
 import { UserRoutingModule } from './user-routing.module';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ProductComponent } from './product/product.component';
-import { ProductDetailsComponent } from './product/product-details/product-details.component';
-import { ProductListComponent } from './product/product-list/product-list.component';
-
+import { MaterialsModule } from '../materials/materials.module';
+import { ProductModule } from './product/product.module';
 
 
 @NgModule({
   declarations: [
     UserDashboardComponent,
-    ProfileComponent,
-    ProductComponent,
-    ProductDetailsComponent,
-    ProductListComponent
+    ProfileComponent
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    ProductModule,
+    UserRoutingModule,
+    MaterialsModule
   ]
 })
 export class UserModule { }

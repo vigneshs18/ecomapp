@@ -1,1 +1,37 @@
-<p>product-details works!</p>
+<!-- {{ productDetails | json }} -->
+
+<h2>{{productDetails?.productName}}</h2>
+<mat-grid-list cols="4" rowHeight="2:1">
+    <mat-grid-tile colspan="2" rowspan="4">
+        <img class="fitWidth" mat-card-image [src]="productDetails?.imageUrl">
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="2">
+       <mat-grid-tile-header>Description</mat-grid-tile-header>
+       <div>
+           {{productDetails?.description}}
+       </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1">
+        <mat-grid-tile-header>Quantity</mat-grid-tile-header>
+        <div>
+            <mat-label>Quantity</mat-label>
+            <mat-select class="matSelect" name="qty" required>
+                <mat-option *ngFor="let qty of [1,2,3,4,5]" [value]="qty">
+                    {{qty}}
+                </mat-option>
+            </mat-select>
+        </div>
+     </mat-grid-tile>
+     <mat-grid-tile colspan="1" rowspan="1">
+        <mat-grid-tile-header>Price</mat-grid-tile-header>
+        <div>
+            {{ productDetails?.price | currency: 'INR' }}
+        </div>
+     </mat-grid-tile>
+     <mat-grid-tile colspan="1" rowspan="1">
+        <button type="button" mat-raised-button color="primary">Add to Wishlist</button>
+     </mat-grid-tile>
+     <mat-grid-tile colspan="1" rowspan="1">
+        <button type="button" mat-raised-button color="primary">Add to Cart</button>
+     </mat-grid-tile>
+</mat-grid-list>
