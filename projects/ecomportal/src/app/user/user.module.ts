@@ -6,6 +6,8 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { ProfileComponent } from './profile/profile.component';
 import { MaterialsModule } from '../materials/materials.module';
 import { ProductModule } from './product/product.module';
+import { WishlistModule } from './wishlist/wishlist.module';
+import { CartModule } from './cart/cart.module';
 
 
 @NgModule({
@@ -16,6 +18,8 @@ import { ProductModule } from './product/product.module';
   imports: [
     CommonModule,
     ProductModule,
+    WishlistModule,
+    CartModule,
     UserRoutingModule,
     MaterialsModule
   ]
