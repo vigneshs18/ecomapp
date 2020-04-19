@@ -23,6 +23,7 @@
     "@angular/router": "~8.2.0",
     "crypto-js": "^4.0.0",
     "hammerjs": "^2.0.8",
+    "ngx-paypal": "^4.0.2",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
